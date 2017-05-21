@@ -1,0 +1,83 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang='en-us'>
+<head>
+
+  <title>Map Guessing Game</title>
+
+  <!-- Angular JS -->
+  <script
+  src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'>
+  </script>
+
+  <!-- JS -->
+  <script src='app.js'></script>
+  <!-- CSS -->
+  <link rel='stylesheet' href='style.css'>
+
+</head>
+
+<body ng-app='mgApp'>
+
+  <div class='navigation'>
+    <a href='http://www.nobleguy.me'><img src='logo.svg' /></a>
+    <span>Map Guesser</span>
+  </div>
+
+  <div id='page-content'>
+
+    <div ng-controller='mainCtrl'>
+      <!-- Select automatic or manual entry -->
+      <div class='slide'>
+        <!-- TODO: Remove h1 tags (style.css too)? -->
+        <h1>Map Guesser</h1>
+        <p>
+          What is this a map of?
+        </p>
+        Score: {{ score }}
+        <form>
+          <table>
+            <tr>
+              <td>
+                <label for='input1'>{{ getImgTitle(options[0]) }}</label>
+              </td>
+              <td>
+                <label for='input2'>{{ getImgTitle(options[1]) }}</label>
+              </td>
+              <td>
+                <label for='input3'>{{ getImgTitle(options[2]) }}</label>
+              </td>
+              <td>
+                <label for='input4'>{{ getImgTitle(options[3]) }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input id='input1' type='radio' ng-model='userSelection' value='0' />
+              </td>
+              <td>
+                <input id='input2' type='radio' ng-model='userSelection' value='1' />
+              </td>
+              <td>
+                <input id='input3' type='radio' ng-model='userSelection' value='2' />
+              </td>
+              <td>
+                <input id='input4' type='radio' ng-model='userSelection' value='3' />
+              </td>
+            </tr>
+          </table>
+          <input type='button' value='Submit Guess' ng-click='submitGuess()' />
+        </form>
+        <br />
+        <img id='map-img' ng-src='map-imgs/{{ imgTitle }}' />
+      </div>
+
+    </div>
+
+    <div id='footer'>
+      Copyright 2017 Benjamin Noble. Last updated 21 May 2017.
+    </div>
+  </div>
+</body>
+</html>
