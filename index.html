@@ -29,13 +29,16 @@
 
     <div ng-controller='mainCtrl'>
       <!-- Select automatic or manual entry -->
-      <div class='slide'>
+      <div ng-show='gameOn' class='slide'>
         <!-- TODO: Remove h1 tags (style.css too)? -->
-        <h1>Map Guesser</h1>
-        <p>
-          What is this a map of?
+        <h1>What is this a map of?</h1>
+        <div id='alerts'>
+          <div id='correct'>Correct!</div>
+          <div id='incorrect'>Incorrect!</div>
+        </div>
+        <p id='score'>
+          Score: {{ score }}
         </p>
-        Score: {{ score }}
         <form>
           <table>
             <tr>
@@ -72,11 +75,15 @@
         <br />
         <img id='map-img' ng-src='map-imgs/{{ imgTitle }}' />
       </div>
+      <div ng-show='gameOver' class='slide'>
+        You've finished guessing all the maps!
+        <input type='button' value='Start Over' onclick='window.location.reload();' />
+      </div>
 
     </div>
 
     <div id='footer'>
-      Copyright 2017 Benjamin Noble. Last updated 21 May 2017.
+      Copyright 2017 Benjamin Noble. Last updated 22 May 2017.
     </div>
   </div>
 </body>
