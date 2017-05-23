@@ -76,7 +76,7 @@
         <img id='map-img' ng-src='map-imgs/{{ imgTitle }}' />
       </div>
       <div ng-show='gameOver' class='slide'>
-        You've finished guessing all the maps!
+        You've finished guessing all the maps! Your final score was: {{ score }}
         <input type='button' value='Start Over' onclick='window.location.reload();' />
       </div>
 
